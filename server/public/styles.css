@@ -1,0 +1,158 @@
+html, body { height: 100%; }
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    background: rgb(0, 0, 0);
+}
+
+a { text-decoration: none; }
+
+ul {
+    list-style: none;
+}
+
+.header-image { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 50%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.header-text {
+    padding-left: 40px;
+    font-size: 2vw;
+    width: auto;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-title {
+    background: black;
+    color: white;
+    font-size: 2.76vw;
+    text-align: left;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: auto;
+    padding-left: 100px;
+}
+
+.image-frame {
+    float:left;
+    width: 20vw;
+    height: max-content;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.attributes-frame {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    height: auto;
+    margin-right:5px;
+}
+
+.movie-selection {
+    padding-left: 40px;
+}
+
+.attribute-image {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.other-attribute {
+    background: black;
+    color: white;
+    text-align: left;
+    font-family: airstreamregular;
+    padding-left: 100px;
+    font-size: 2vw;
+    font-family: "Courier New"
+}
+
+.generate-button {
+    border: none;
+    background-color:teal;
+    color: white;
+    padding: auto auto;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2vw;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 12vw;
+    height: 6vh;
+}
+
+.generate-button:hover {
+    background-color: rgb(1, 157, 157);
+    color: white;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #5834db;
+    color: white;
+    padding: auto auto;
+    font-size: 1.2vw;
+    border: none;
+    cursor: pointer;
+    width: 12vw;
+    height: 6vh;
+    border-radius: 12px;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #754ffc;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #754ffc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height:200px;
+    overflow:scroll; 
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #1f0287}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
