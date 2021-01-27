@@ -31,6 +31,7 @@ MongoClient.connect(mongoURL, {
     app.get('/movie', (req, res) => {
         db.collection('cluster0').find({ id: randomNum }).toArray(function(err, result) {
             res.render('index.ejs', {movie: result});
+            //res.send({randomTitle: result[0].title});
         });
     });
 }).catch(error => console.error(error));
