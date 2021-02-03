@@ -5,9 +5,9 @@ var path = require('path');
 const MongoClient = require('mongodb').MongoClient
 
 var randomNum = 251;
+var genre = "All";
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
 const DB_USER = 'Brandon';
@@ -19,22 +19,27 @@ MongoClient.connect(mongoURL, {
   }).then(client => {
     console.log('Connected to Database');
     const db = client.db('moviedb');
+
     app.set('view engine', 'ejs');
+
     app.post('/', (req, res) => {
         data = req.body;
-        res.json({
-            status: 'success',
-            randomNum: data.randomNum
-        });
         randomNum = data.randomNum;
+        genre = data.genre;
+        if (genre === 'All' || genre === 'Select') {
+            db.collection('cluster0').find({ id: randomNum }).toArray(function(err, result) {
+                return res.status(200).json(result[0]);
+            });
+        } else {
+            var regexGenre = new RegExp(".*" + genre + "*.");
+            db.collection('cluster0').find({ genre: regexGenre }).toArray(function(err, result) {
+                result = result[Math.floor(Math.random() * (result.length) + 0)];
+                return res.status(200).json(result);
+            });
+        }
+        return res.status(400);
     });
-    app.get('/movie', (req, res) => {
-        db.collection('cluster0').find({ id: randomNum }).toArray(function(err, result) {
-            res.render('index.ejs', {movie: result});
-            //res.send({randomTitle: result[0].title});
-        });
-    });
-}).catch(error => console.error(error));
+});
 
 app.get('/', (req, res) => {
     res.sendFile('index.html');
