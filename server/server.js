@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
 const DB_USER = 'Brandon';
-const PASSWORD = encodeURIComponent('Br@nd0np');
+const PASSWORD = encodeURIComponent('');
 const mongoURL = `mongodb+srv://${DB_USER}:${PASSWORD}@cluster0.el4df.mongodb.net/moviedb?authSource=admin`;
 
 MongoClient.connect(mongoURL, {
